@@ -6,18 +6,19 @@
  * Description: Print dll  after each time swapped.
  */
 void insertion_sort_list(listint_t **list) {
-    if (*list == NULL || (*list)->next == NULL) {
+    listint_t *temp, *current;
+	if (*list == NULL || (*list)->next == NULL) {
         return;
     }
 
-    listint_t *current = (*list)->next;
+    current = (*list)->next;
 
     while (current) {
         while (current->prev && current->prev->n > current->n) {
             current = current->prev;
         }
 
-        listint_t *temp = current->next;
+        temp = current->next;
         current->next = current->prev;
 
         if (current->prev) {
@@ -29,6 +30,6 @@ void insertion_sort_list(listint_t **list) {
 
         current = temp;
     }
-    print_list((current);
-     printf("\n");
+    print_list(current);
+    printf("\n");
 }
