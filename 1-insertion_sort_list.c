@@ -27,7 +27,7 @@ void insertion_sort_list(listint_t **list) {
             temp->prev = NULL;
             sorted = temp;
         }
-print_list((const listint_t *)*list);    }
+print_list((sorted));    }
     printf("\n");
 
     *list = sorted;
