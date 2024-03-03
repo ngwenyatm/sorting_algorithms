@@ -37,6 +37,9 @@ void insertion_sort_list(listint_t **list) {
                 sorted = temp;
             }
         }
+	while (list) {
+        printf("%d ", list->n);
+        list = list->next;
     }
 
     *list = sorted;
