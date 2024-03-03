@@ -8,11 +8,10 @@
 void insertion_sort_list(listint_t **list) {
     listint_t *temp, *sorted = NULL;
 
-
     while (*list) {
         temp = *list;
         *list = temp->next;
-        while (sorted && sorted->n < temp->n) {
+       while (sorted && (sorted->n < temp->n)) {
             sorted = sorted->next;
         }
 
@@ -28,11 +27,7 @@ void insertion_sort_list(listint_t **list) {
             temp->prev = NULL;
             sorted = temp;
         }
-
-        while (list) {
-        printf("%d ", list->n);
-        list = list->next;
-    }
+print_list((const listint_t *)*list);    }
     printf("\n");
 
     *list = sorted;
