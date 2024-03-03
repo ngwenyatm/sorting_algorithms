@@ -1,4 +1,10 @@
 #include "sort.h"
+/**
+ * insertion_sort_list - Sorts DLL of integers with insertion sort
+ * @list: A pointer to head of DLL
+ *
+ * Description: Print dll  after each time swapped.
+ */
 void insertion_sort_list(listint_t **list) {
     listint_t *sorted = NULL;
     listint_t *temp;
