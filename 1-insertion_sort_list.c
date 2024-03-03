@@ -5,14 +5,6 @@
  *
  * Description: Print dll  after each time swapped.
  */
-void print_list(const listint_t *list) {
-    while (list) {
-        printf("%d ", list->n);
-        list = list->next;
-    }
-    printf("\n");
-}
-
 void insertion_sort_list(listint_t **list) {
     listint_t *temp, *sorted = NULL;
 
