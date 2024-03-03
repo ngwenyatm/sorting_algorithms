@@ -6,29 +6,38 @@
  * Description: Print dll  after each time swapped.
  */
 void insertion_sort_list(listint_t **list) {
-    listint_t *temp, *sorted = NULL;
+    
+    listint_t *sentinel = malloc(sizeof(listint_t));
+    sentinel->next = *list;
+    sentinel->prev = NULL;
+    *list = sentinel;
 
-    while (*list) {
-        temp = *list;
-        *list = temp->next;
-       while (sorted && (sorted->n < temp->n)) {
-            sorted = sorted->next;
+    
+    listint_t *current = sentinel->next;
+
+    while (current) {
+        
+        while (current->prev && current->prev->n > current->n) {
+            current = current->prev;
         }
 
-
-        if (sorted) {
-            temp->next = sorted;
-            temp->prev = sorted->prev;
-            sorted->prev->next = temp;
-            sorted->prev = temp;
+      
+        listint_t *temp = current->next;
+        current->next = current->prev;
+        if (current->prev) {
+            current->prev->next = current;
         } else {
-
-            temp->next = sorted;
-            temp->prev = NULL;
-            sorted = temp;
+            
+            *list = current;
         }
-print_list((sorted));    }
-    printf("\n");
+        current = temp;
+    }
 
-    *list = sorted;
+    
+    *list = (*list)->next;
+    free(sentinel);
+
+  
+    print_list(*list);
+    printf("\n");
 }
