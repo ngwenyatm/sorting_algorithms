@@ -14,6 +14,28 @@ void swap(int *a, int *b)
         *a = *b;
         *b = temp;
 }
+
+/**
+ * print_array 
+ * array: int
+ * size: size_t
+ * Return: void
+ */
+void print_array(int *array, size_t size)
+{
+        size_t i
+
+        for (i = 0; i < size; i++)
+{
+        if (i > 0)
+{
+        putchar(' ');
+}
+printf("%d", array[i]);
+}
+putchar('\n');
+}
+
 /**
  * selection_sort - sorts an array of integers in ascending order
  * @array: int
@@ -39,13 +61,7 @@ void selection_sort(int *array, size_t size)
                 if (min_index != n)
                 {
                         swap(&array[n], &array[min_index]);
-                        printf("After swapping: ");
-
-                        for (o = 0; o < size; o++)
-                        {
-                                printf("%d ", array[o]);
-                        }
-                        printf("\n");
+                        print_array(array, size);
                 }
         }
 }
