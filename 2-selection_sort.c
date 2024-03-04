@@ -1,5 +1,12 @@
 #include "sort.h"
 
+void swap(int *a, int *b)
+{
+        int temp = *a;
+
+        *a = *b;
+        *b = temp;
+}
 /**
  * selection_sort - sorts an array of integers in ascending order
  * @array: int
