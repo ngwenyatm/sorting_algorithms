@@ -1,3 +1,4 @@
+:wq
 #include "sort.h"
 
 /**
