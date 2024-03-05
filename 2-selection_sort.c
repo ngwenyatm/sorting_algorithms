@@ -1,10 +1,8 @@
-:wq
 #include "sort.h"
-
 /**
  * swap - swaps elements
- * a: temp int
- * b: temp int
+ * @a: temp int
+ * @b: temp int
  * Return: void
  */
 
@@ -17,26 +15,25 @@ void swap(int *a, int *b)
 }
 
 /**
- * print_array 
- * array: int
- * size: size_t
+ * print_array - prints printf
+ * @array: int
+ * @size: size_t
  * Return: void
  */
 void print_array(int *array, size_t size)
 {
-        size_t i
+        size_t i;
 
         for (i = 0; i < size; i++)
-{
-        if (i > 0)
-{
-        putchar(' ');
+        {
+                if (i > 0)
+                {
+                        putchar(' ');
+                }
+                printf("%d", array[i]);
+        }
+        putchar('\n');
 }
-printf("%d", array[i]);
-}
-putchar('\n');
-}
-
 /**
  * selection_sort - sorts an array of integers in ascending order
  * @array: int
@@ -46,8 +43,7 @@ putchar('\n');
 
 void selection_sort(int *array, size_t size)
 {
-        size_t n, m, o;
-
+        size_t n, m;
         for (n = 0; n < size - 1; n++)
         {
                 size_t min_index = n;
