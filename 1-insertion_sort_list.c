@@ -39,7 +39,9 @@ void insertion_sort_list(listint_t **list)
            next->next = current;
            current->prev = next;
        }
+       print_list((const listint_t *)*list);
    }
 
    *list = sorted;
+
 }
