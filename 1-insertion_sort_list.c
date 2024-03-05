@@ -1,47 +1,53 @@
 #include "sort.h"
+
+/**
+ * swap_it - Swaps nodes in a dll.
+ * @head: Pointer to the DLL head
+ * @node_1: first node to be swapped.
+ * @node_2: The second node to be swapped.
+ */
+void swap_it(listint_t **head, listint_t **node_1, listint_t *node_2) {
+
+  listint_t *temp_next = node_2->next;
+
+  (*node_1)->next = temp_next;
+  if (temp_next != NULL) {
+    temp_next->prev = *node_1;
+  }
+  node_2->prev = (*node_1)->prev;
+  node_2->next = *node_1;
+
+  if ((*node_1)->prev != NULL) {
+    (*node_1)->prev->next = node_2;
+  } else {
+    *head = node_2;
+  }
+ 
+  (*node_1)->prev = node_2;
+  *node_1 = node_2->prev;
+}
+
 /**
  * insertion_sort_list - Sorts DLL of integers with insertion sort
  * @list: A pointer to head of DLL
  *
  * Description: Print dll  after each time swapped
  */
-void insertion_sort_list(listint_t **list)
-{
-   listint_t *sorted = NULL;
-   listint_t *current, *next;
+void insertion_sort_list(listint_t **list) {
+  listint_t *current, *previous, *next;
 
-   while (*list != NULL)
-   {
-       current = *list;
-       *list = current->next;
+  if (list == NULL || *list == NULL || (*list)->next == NULL) {
+    return;
+  }
 
-       if (sorted == NULL || sorted->n > current->n)
-       {
-           current->next = sorted;
-           if (sorted != NULL)
-           {
-               sorted->prev = current;
-           }
-           sorted = current;
-       }
-       else
-       {
-           next = sorted;
-           while (next->next != NULL && next->next->n <= current->n)
-           {
-               next = next->next;
-           }
-           current->next = next->next;
-           if (next->next != NULL)
-           {
-               next->next->prev = current;
-           }
-           next->next = current;
-           current->prev = next;
-       }
-       print_list((const listint_t *)*list);
-   }
+  for (current = (*list)->next; current != NULL; current = next) {
+    next = current->next;
+    previous = current->prev;
 
-   *list = sorted;
-
+    while (previous != NULL && current->n < previous->n)
+    {
+      swap_it(list, &previous, current);
+      print_list(*list);
+    }
+  }
 }
