@@ -15,26 +15,6 @@ void swap(int *a, int *b)
 }
 
 /**
- * print_array - prints printf
- * @array: int
- * @size: size_t
- * Return: void
- */
-void print_array(int *array, size_t size)
-{
-        size_t i;
-
-        for (i = 0; i < size; i++)
-        {
-                if (i > 0)
-                {
-                        putchar(' ');
-                }
-                printf("%d", array[i]);
-        }
-        putchar('\n');
-}
-/**
  * selection_sort - sorts an array of integers in ascending order
  * @array: int
  * @size: number of elements
