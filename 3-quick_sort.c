@@ -62,5 +62,5 @@ void quick_sort_assit(int *array, int low, int high)
  */
 void quick_sort(int *array, size_t size)
 {
-        quick_sort_assit(array, 0, size - 1);
+        quick_sort_assit(array, 0, (size - 1));
 }
