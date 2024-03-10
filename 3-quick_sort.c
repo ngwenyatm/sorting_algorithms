@@ -23,6 +23,7 @@ int partition(int *array, int low, int high);
         swap(&array[a + 1], &array[high]);
         return (a + 1);
 }
+
 /**
  * sort_assist - sorts the array
  * @array: int
@@ -41,6 +42,7 @@ void sort_assist(int *array, int low, int high);
                 sort_assist(array, i + 1, high);
         }
 }
+
 /**
  * quick_sort - sorts an array of integers in ascending order
  * @array: int
