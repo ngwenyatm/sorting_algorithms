@@ -1,5 +1,18 @@
 #include "sort.h"
 /**
+ * swap - swaps ints
+ * @a: int
+ * @b: int
+ * Return: void
+ */
+void swap(int *a, int *b)
+{
+        int temp = *a;
+
+        *a = *b;
+        *b = temp;
+}
+/**
  * partition - separates the array into highest and lowest order
  * @array: int
  * @low: pivot element
