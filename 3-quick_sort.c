@@ -6,7 +6,7 @@
  * @high: pivot element
  * Return: sorted arrray
  */
-int partition(int *array, int low, int high)
+int partition(int *array, int low, int high);
 {
         int pivot = array[high];
         int a = low - 1;
@@ -30,7 +30,7 @@ int partition(int *array, int low, int high)
  * @high: pivot element
  * Return: void
  */
-void sort_assist(int *array, int low, int high)
+void sort_assist(int *array, int low, int high);
 {
         if (low < high)
         {
@@ -47,7 +47,7 @@ void sort_assist(int *array, int low, int high)
  * @size: size of array
  * Return: void
  */
-void quick_sort(int *array, size_t size)
+void quick_sort(int *array, size_t size);
 {
         sort_assist(array, 0, size - 1);
 }
